@@ -1,12 +1,9 @@
 # README
 
 ## START LOG-INJECTOR 
-* go run main.go 
-<br>
+* go run main.go
 * default port = 3000
-<br>
 * make sure to add connection string provided in the email to connect with db.
-<br>
 
 ## START QUERY-INTERFACE 
 * npm install
