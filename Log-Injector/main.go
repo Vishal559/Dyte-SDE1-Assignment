@@ -4,6 +4,7 @@ import (
 	"Log-Injector/controllers/logController"
 	"Log-Injector/db"
 	"fmt"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -18,6 +19,15 @@ func main() {
 			return
 		}
 	}
+
+	// Add CORS middleware
+	corsHandler := handlers.CORS(
+		handlers.AllowedOrigins([]string{"*"}),                      // Specify the allowed origins
+		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}), // Specify the allowed methods
+		handlers.AllowedHeaders([]string{"Content-Type"}),           // Specify the allowed headers
+	)
+	// Wrap your router with CORS middleware
+	r.Use(corsHandler)
 
 	// Initialize MongoDB connection
 	err := db.Init()
