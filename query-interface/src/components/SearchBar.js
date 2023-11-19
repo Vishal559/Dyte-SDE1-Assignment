@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchQuery, setPressEnter, updateResults , setFilters} from "../redux/actions";
+import { setSearchQuery, setPressEnter, updateResults , setFilters, setPage} from "../redux/actions";
 import "../App.css";
 
 const SearchBar = () => {
@@ -31,6 +31,7 @@ const SearchBar = () => {
   const handleSubmit = async () => {
     dispatch(updateResults([]));
     dispatch(setPressEnter(true));
+    dispatch(setPage(1));
   };
 
 

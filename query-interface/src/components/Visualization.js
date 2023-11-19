@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setPressEnter, setPressSubmit, updateResults} from "../redux/actions";
+import { setPressEnter, setPressSubmit, updateResults, setPage} from "../redux/actions";
 
 const Visualization = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Visualization = () => {
   const submitPressed = useSelector((state) => state.submitPressed);
   const results = useSelector((state) => state.results); 
   const filters = useSelector((state) => state.filters)
-  const [page, setPage] = useState(1);
+  const page = useSelector((state) => state.page)
   const [isFetching, setIsFetching] = useState(false)
 
   useEffect(() => {
@@ -43,21 +43,23 @@ const Visualization = () => {
       // Make a GET request to localhost:3000 with the search query
       console.log(filters)
       console.log("query", query)
+      console.log(pageNum)
       axios.get(
-        `http://localhost:3000/api/search/filters?query=${query}`,
+        `http://localhost:3000/api/search/filters?query=${query}&page=${pageNum}`,
         {params:filters},
         config
       ).then(response => {
         console.log(response.data)
         if (response.data.results){
           dispatch(updateResults([...results, ...response.data.results]));
-          setPage(pageNum + 1);
+          if (response.data.results.length >= 50) {
+            dispatch(setPage(pageNum + 1));
+          }
           setIsFetching(false)
         }
         else{
           console.error('Results field is undefined in the response.');
           dispatch(updateResults([]));
-          setPage(1);
           setIsFetching(false);
         }
       })

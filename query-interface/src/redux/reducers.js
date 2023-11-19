@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 const initialState = {
   searchQuery: "",
   enterPressed: false,
@@ -13,6 +15,7 @@ const initialState = {
     parentResourceId: "",
   },
   submitPressed: false,
+  page: 1,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -41,6 +44,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         submitPressed: action.payload
+      }
+    case "SET_PAGE":
+      return {
+        ...state,
+        page: action.payload
       }
     default:
       return state;

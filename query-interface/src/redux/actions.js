@@ -32,3 +32,10 @@ export const setPressSubmit = (filters) => {
     payload: filters,
   }
 }
+
+export const setPage = (page) => {
+  return {
+    type: "SET_PAGE",
+    payload: page,
+  }
+}
