@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const connectionString = ""
+const connectionString = "mongodb+srv://admin-vishal:RSjrcspwOLrYs7Ex@cluster0.cujjf.mongodb.net/?retryWrites=true&w=majority"
 
 var client *mongo.Client
 
