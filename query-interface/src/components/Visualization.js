@@ -42,7 +42,6 @@ const Visualization = () => {
       };
       // Make a GET request to localhost:3000 with the search query
       console.log(filters)
-      console.log("query", query)
       console.log(pageNum)
       axios.get(
         `http://localhost:3000/api/search/filters?query=${query}&page=${pageNum}`,
@@ -51,8 +50,13 @@ const Visualization = () => {
       ).then(response => {
         console.log(response.data)
         if (response.data.results){
-          dispatch(updateResults([...results, ...response.data.results]));
-          if (response.data.results.length >= 50) {
+          // 50 is the page size.
+          if (results.length <= (pageNum-1) * 50) {
+            console.log("length", results.length)
+            console.log("paze-num", pageNum)
+            dispatch(updateResults([...results, ...response.data.results]));
+          }
+          if (response.data.results.length === 50) {
             dispatch(setPage(pageNum + 1));
           }
           setIsFetching(false)

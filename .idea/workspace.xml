@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b196a74-93b5-4474-b3fe-eb9edca3dea1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Log-Injector/db/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/Log-Injector/db/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/query-interface/src/components/Visualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/query-interface/src/components/Visualization.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
