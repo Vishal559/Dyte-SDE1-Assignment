@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setPressEnter, setPressSubmit, updateResults, setPage} from "../redux/actions";
+import { setPressEnter, setPressSubmit, updateResults,  setPage} from "../redux/actions";
 
 const Visualization = () => {
   const dispatch = useDispatch();
