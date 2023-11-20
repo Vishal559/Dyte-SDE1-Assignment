@@ -18,12 +18,12 @@ const Visualization = () => {
       // Reset enterPressed to false after making the query
       dispatch(setPressEnter(false));
       dispatch(setPressSubmit(false));
-      setIsFetching(true)
 
       // Check if any field is non-empty
       const hasNonEmptyField = Object.values(filters).some(value => Boolean(value));
       // Make a text query when the searchQuery changes
       if (searchQuery.trim() !== "" || hasNonEmptyField) {
+        setIsFetching(true)
         makeTextQuery(searchQuery, page);
       } else {
         // Clear results when searchQuery is empty
