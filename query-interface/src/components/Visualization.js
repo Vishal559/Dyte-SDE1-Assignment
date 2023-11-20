@@ -90,7 +90,7 @@ const Visualization = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [page, searchQuery]);
+  }, [page, searchQuery, filters]);
 
   return (
     <div className="visualization-container">
